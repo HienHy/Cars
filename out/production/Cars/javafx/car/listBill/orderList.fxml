@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.car.listBill.ListBillController">
+   <children>
+      <Text layoutX="535.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order List" textAlignment="CENTER" wrappingWidth="210.0">
+         <font>
+            <Font size="50.0" />
+         </font></Text>
+      <TableView fx:id="tbBill" layoutX="-1.0" layoutY="196.0" prefHeight="600.0" prefWidth="1280.0">
+        <columns>
+          <TableColumn fx:id="cCusName" prefWidth="200.0" text="CusName" />
+          <TableColumn fx:id="cTel" prefWidth="200.0" text="Tel" />
+            <TableColumn fx:id="cEmail" prefWidth="200.0" text="Email" />
+            <TableColumn fx:id="cCMT" prefWidth="150.0" text="CMT" />
+            <TableColumn fx:id="cTime" prefWidth="100.0" text="Time" />
+            <TableColumn fx:id="cGl" prefWidth="200.0" text="GL" />
+            <TableColumn fx:id="cTotal" prefWidth="130.0" text="Total" />
+            <TableColumn fx:id="cAction1" prefWidth="100.0" text="Action"/>
+        </columns>
+      </TableView>
+      <Button layoutY="127.0" mnemonicParsing="false" onAction="#backToList" prefHeight="50.0" prefWidth="200.0" text="BackTolist" />
+   </children>
+</Pane>

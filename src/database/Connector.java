@@ -14,14 +14,7 @@ public class Connector {
 
     private Connection conn;
     private static Connector instance;
-    public static Connector getInstance() throws Exception{
-        if(instance ==null){
-            instance=new Connector();
-        }
-        return instance;
-    }
 
-    private static Connector instance;
 
     public static Connector getInstance() throws Exception{
         if(instance == null){

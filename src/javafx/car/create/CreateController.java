@@ -27,6 +27,12 @@ public class CreateController {
     public TextField txtTime;
     public TextField txtGl;
     public TextField txtCMT;
+    public TextField carBrand;
+    public TextField carName;
+    public TextField carPrice;
+    public TextField nbd;
+    public TextField nkt;
+
     public static boolean patternMatchesEmail(String emailAddress) {
         return Pattern.compile("^(.+)@(\\S+)$")
                 .matcher(emailAddress)

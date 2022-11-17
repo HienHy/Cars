@@ -26,6 +26,7 @@ public class OrderRepository implements IRepository<Order>{
                 String gl = rs.getString("gl");
                 int cmt = rs.getInt("cmt");
                 int total = rs.getInt("total");
+                
 
                 Order s = new Order(id,name,tel,email,time,gl,cmt,total);
                 ls.add(s);

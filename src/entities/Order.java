@@ -1,6 +1,9 @@
 package entities;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+import java.util.Date;
 
 public class Order {
     private Integer cusId;
@@ -11,13 +14,60 @@ public class Order {
     private String gl;
     private Integer cmt;
     private Integer total;
+
     private Button pay;
 
+
+    public String carBrand;
+    public String carName;
+    public Integer carPrice;
+    public Date nbd;
+    public Date nkt;
+
+    public String getCarBrand() {
+        return carBrand;
+    }
+
+    public void setCarBrand(String carBrand) {
+        this.carBrand = carBrand;
+    }
+
+    public String getCarName() {
+        return carName;
+    }
+
+    public void setCarName(String carName) {
+        this.carName = carName;
+    }
+
+    public Integer getCarPrice() {
+        return carPrice;
+    }
+
+    public void setCarPrice(Integer carPrice) {
+        this.carPrice = carPrice;
+    }
+
+    public Date getNbd() {
+        return nbd;
+    }
+
+    public void setNbd(Date nbd) {
+        this.nbd = nbd;
+    }
+
+    public Date getNkt() {
+        return nkt;
+    }
+
+    public void setNkt(Date nkt) {
+        this.nkt = nkt;
+    }
 
     public Order() {
     }
 
-    public Order(Integer cusId, String cusName, String tel, String email, Integer time,String gl,Integer cmt,Integer total) {
+    public Order(Integer cusId, String cusName, String tel, String email, Integer time,String gl,Integer cmt,Integer total,String carBrand,String carName,Integer carPrice,Date nbd,Date nkt) {
         this.cusId = cusId;
         this.cusName = cusName;
         this.tel = tel;
@@ -26,6 +76,11 @@ public class Order {
         this.gl=gl;
         this.cmt=cmt;
         this.total=total;
+        this.carBrand=carBrand;
+        this.carName=carName;
+        this.carPrice=carPrice;
+        this.nbd=nbd;
+        this.nkt=nkt;
         this.pay = new Button("Pay");
         this.pay.setOnAction(event -> {
             try {

@@ -45,12 +45,9 @@ public class Car {
         this.rent.setOnAction(event -> {
             try {
                 CreateController.rentCar = this;
-                if (this.status=false){
 
-                }
                 Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/javafx/car/create/create.fxml"))));
                 Scene sc = new Scene(createForm, 1280, 800);
-
                 Main.rootStage.setScene(sc);
                 Main.rootStage.setTitle("Create Bill");
             }catch (Exception e){

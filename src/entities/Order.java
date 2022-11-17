@@ -3,7 +3,7 @@ package entities;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Order {
     private Integer cusId;

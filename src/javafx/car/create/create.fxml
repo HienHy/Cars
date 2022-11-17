@@ -51,7 +51,7 @@
       <TextField fx:id="carBrand" editable="false" layoutX="60.0" layoutY="157.0" prefHeight="50.0" prefWidth="500.0" />
       <TextField fx:id="carName" editable="false" layoutX="60.0" layoutY="294.0" prefHeight="50.0" prefWidth="500.0" />
       <TextField fx:id="carPrice" editable="false" layoutX="60.0" layoutY="225.0" prefHeight="50.0" prefWidth="500.0" />
-      <TextField fx:id="nbd" editable="false" layoutX="60.0" layoutY="423.0" prefHeight="50.0" prefWidth="500.0" />
-      <TextField fx:id="nkt" editable="false" layoutX="60.0" layoutY="357.0" prefHeight="50.0" prefWidth="500.0" />
+      <DatePicker fx:id="nbd" layoutX="60.0" layoutY="435.0" prefHeight="50.0" prefWidth="496.0" />
+      <DatePicker fx:id="nkt" layoutX="64.0" layoutY="366.0" prefHeight="50.0" prefWidth="496.0" />
    </children>
 </Pane>

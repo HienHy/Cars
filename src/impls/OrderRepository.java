@@ -4,9 +4,11 @@ import database.Connector;
 import entities.Order;
 import interfaces.IRepository;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
+
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
+import java.sql.Date;
 
 
 public class OrderRepository implements IRepository<Order>{
@@ -26,9 +28,14 @@ public class OrderRepository implements IRepository<Order>{
                 String gl = rs.getString("gl");
                 int cmt = rs.getInt("cmt");
                 int total = rs.getInt("total");
-                
+                String carBrand = rs.getString("carBrand");
+                String carName = rs.getString("carName");
+                int carPrice = rs.getInt("carPrice");
+                Date nbd = rs.getDate("nbd");
+                Date nkt = rs.getDate("nkt");
 
-                Order s = new Order(id,name,tel,email,time,gl,cmt,total);
+
+                Order s = new Order(id,name,tel,email,time,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt);
                 ls.add(s);
             }
 
@@ -46,7 +53,7 @@ public class OrderRepository implements IRepository<Order>{
     public boolean create(Order s) {
         try {
             Connector connector = Connector.getInstance();
-            String sql_txt = "insert into orders(cusName,tel,email,time,gl,cmt,total) values(?,?,?,?,?,?,?)";
+            String sql_txt = "insert into orders(cusName,tel,email,time,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt) values(?,?,?,?,?,?,?,?,?,?,?,?)";
             ArrayList parameters = new ArrayList();
             parameters.add(s.getCusName());
             parameters.add(s.getTel());
@@ -55,10 +62,15 @@ public class OrderRepository implements IRepository<Order>{
             parameters.add(s.getGl());
             parameters.add(s.getCmt());
             parameters.add(s.getTotal());
+            parameters.add(s.getCarBrand());
+            parameters.add(s.getCarName());
+            parameters.add(s.getCarPrice());
+            parameters.add(s.getNbd());
+            parameters.add(s.getNkt());
             return connector.execute(sql_txt, parameters);
 
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
         }
         return false;
     }

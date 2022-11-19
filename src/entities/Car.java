@@ -1,9 +1,10 @@
 package entities;
 
 
-import javafx.Main;
+import static helper.RootStage.rootStage;
+
 import javafx.car.create.CreateController;
-import javafx.car.list.ListController;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -44,12 +45,14 @@ public class Car {
         this.rent = new Button("Rent");
         this.rent.setOnAction(event -> {
             try {
-                CreateController.rentCar = this;
 
-                Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/javafx/car/create/create.fxml"))));
-                Scene sc = new Scene(createForm, 1280, 800);
-                Main.rootStage.setScene(sc);
-                Main.rootStage.setTitle("Create Bill");
+                    CreateController.rentCar = this;
+                    Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/javafx/car/create/create.fxml"))));
+                    Scene sc = new Scene(createForm, 1280, 800);
+                    rootStage.setScene(sc);
+                    rootStage.setTitle("Create Bill");
+
+
             }catch (Exception e){
 
             }

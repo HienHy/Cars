@@ -1,10 +1,9 @@
 package impls;
 
-import database.Connector;
+import helper.Connector;
 import entities.Order;
 import interfaces.IRepository;
 import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ public class OrderRepository implements IRepository<Order>{
                 String name = rs.getString("cusName");
                 String tel = rs.getString("tel");
                 String email = rs.getString("email");
-                int time = rs.getInt("time");
+
                 String gl = rs.getString("gl");
                 int cmt = rs.getInt("cmt");
                 int total = rs.getInt("total");
@@ -35,7 +34,7 @@ public class OrderRepository implements IRepository<Order>{
                 Date nkt = rs.getDate("nkt");
 
 
-                Order s = new Order(id,name,tel,email,time,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt);
+                Order s = new Order(id,name,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt);
                 ls.add(s);
             }
 
@@ -53,12 +52,11 @@ public class OrderRepository implements IRepository<Order>{
     public boolean create(Order s) {
         try {
             Connector connector = Connector.getInstance();
-            String sql_txt = "insert into orders(cusName,tel,email,time,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql_txt = "insert into orders(cusName,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt) values(?,?,?,?,?,?,?,?,?,?,?,?)";
             ArrayList parameters = new ArrayList();
             parameters.add(s.getCusName());
             parameters.add(s.getTel());
             parameters.add(s.getEmail());
-            parameters.add(s.getTime());
             parameters.add(s.getGl());
             parameters.add(s.getCmt());
             parameters.add(s.getTotal());
@@ -67,9 +65,13 @@ public class OrderRepository implements IRepository<Order>{
             parameters.add(s.getCarPrice());
             parameters.add(s.getNbd());
             parameters.add(s.getNkt());
+
+            System.out.println(12345);
+
             return connector.execute(sql_txt, parameters);
 
         } catch (Exception e) {
+
             System.out.println(e.getMessage());
         }
         return false;

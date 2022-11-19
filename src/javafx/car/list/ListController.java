@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
+import static helper.RootStage.rootStage;
+
 
 public class ListController implements Initializable {
 
@@ -28,6 +30,7 @@ public class ListController implements Initializable {
     public TableColumn<Car,Boolean> cStatus;
 
     public TableColumn<Car, Button> cAction;
+
 
 
 
@@ -83,7 +86,7 @@ public class ListController implements Initializable {
     public void backToList(ActionEvent actionEvent) throws IOException {
         Parent listScene = FXMLLoader.load(getClass().getResource("../listBill/orderList.fxml"));
         Scene sc = new Scene(listScene,1280,800);
-        Main.rootStage.setTitle("List Bill");
-        Main.rootStage.setScene(sc);
+        rootStage.setTitle("List Bill");
+        rootStage.setScene(sc);
     }
 }

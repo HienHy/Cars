@@ -1,6 +1,6 @@
 package impls;
 
-import database.Connector;
+import helper.Connector;
 import entities.Car;
 import interfaces.IRepository;
 import javafx.scene.control.Alert;

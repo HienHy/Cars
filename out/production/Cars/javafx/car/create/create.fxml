@@ -7,28 +7,23 @@
 
 <Pane fx:id="paneCus" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="/css/createCus.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.car.create.CreateController">
    <children>
-      <Text layoutX="485.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a Order" textAlignment="CENTER" wrappingWidth="310.0">
+      <Text layoutX="485.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Bill" textAlignment="CENTER" wrappingWidth="310.0">
          <font>
             <Font size="50.0" />
          </font>
       </Text>
       <Button layoutX="67.0" layoutY="83.0" mnemonicParsing="false" onAction="#backToList" prefHeight="50.0" prefWidth="200.0" text="Back To List Cars" />
-      <TextField fx:id="txtName" layoutX="720.0" layoutY="157.0" prefHeight="50.0" prefWidth="500.0" promptText="Name">
+      <TextField fx:id="txtName" layoutX="850.0" layoutY="200.0" prefHeight="50.0" prefWidth="400.0" promptText="Name">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtTel" layoutX="720.0" layoutY="225.0" prefHeight="50.0" prefWidth="500.0" promptText="Tel">
+      <TextField fx:id="txtTel" layoutX="850.0" layoutY="300.0" prefHeight="50.0" prefWidth="400.0" promptText="Tel">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtEmail" layoutX="720.0" layoutY="486.0" prefHeight="50.0" prefWidth="500.0" promptText="Email">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtTime" layoutX="720.0" layoutY="357.0" prefHeight="50.0" prefWidth="500.0" promptText="Time">
+      <TextField fx:id="txtEmail" layoutX="850.0" layoutY="600.0" prefHeight="50.0" prefWidth="400.0" promptText="Email">
          <font>
             <Font size="15.0" />
          </font>
@@ -38,20 +33,70 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <TextField fx:id="txtGl" layoutX="720.0" layoutY="423.0" prefHeight="50.0" prefWidth="500.0" promptText="Gửi Lại">
+      <TextField fx:id="txtGl" layoutX="850.0" layoutY="500.0" prefHeight="50.0" prefWidth="400.0" promptText="Mortgage">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtCMT" layoutX="720.0" layoutY="294.0" prefHeight="50.0" prefWidth="500.0" promptText="CMT">
+      <TextField fx:id="txtCMT" layoutX="850.0" layoutY="400.0" prefHeight="50.0" prefWidth="400.0" promptText="ID">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="carBrand" editable="false" layoutX="60.0" layoutY="157.0" prefHeight="50.0" prefWidth="500.0" />
-      <TextField fx:id="carName" editable="false" layoutX="60.0" layoutY="294.0" prefHeight="50.0" prefWidth="500.0" />
-      <TextField fx:id="carPrice" editable="false" layoutX="60.0" layoutY="225.0" prefHeight="50.0" prefWidth="500.0" />
-      <DatePicker fx:id="nbd" layoutX="60.0" layoutY="435.0" prefHeight="50.0" prefWidth="496.0" />
-      <DatePicker fx:id="nkt" layoutX="64.0" layoutY="366.0" prefHeight="50.0" prefWidth="496.0" />
+      <TextField fx:id="carBrand" editable="false" layoutX="150.0" layoutY="200.0" prefHeight="50.0" prefWidth="400.0" />
+      <TextField fx:id="carName" editable="false" layoutX="150.0" layoutY="300.0" prefHeight="50.0" prefWidth="400.0" />
+      <TextField fx:id="carPrice" editable="false" layoutX="150.0" layoutY="400.0" prefHeight="50.0" prefWidth="400.0" />
+      <DatePicker fx:id="nbd" layoutX="150.0" layoutY="500.0" prefHeight="50.0" prefWidth="400.0" promptText="Start Date" />
+      <DatePicker fx:id="nkt" layoutX="150.0" layoutY="600.0" prefHeight="50.0" prefWidth="400.0" promptText="End Date" />
+      <Text layoutX="15.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Brand:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Name:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price/Day:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="632.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="730.0" layoutY="632.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cus Email:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="730.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mortgage:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="730.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cus ID:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="730.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cus Tel:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="730.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cus Name:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

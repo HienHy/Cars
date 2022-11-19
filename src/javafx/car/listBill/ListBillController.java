@@ -22,13 +22,15 @@ import javax.imageio.IIOException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import static helper.RootStage.rootStage;
+
 
 public class ListBillController implements Initializable {
     public TableView<Order> tbBill;
     public TableColumn<Order,String> cCusName;
     public TableColumn<Order,String> cTel;
     public TableColumn<Order,String> cEmail;
-    public TableColumn<Order,Integer> cTime;
+
     public TableColumn<Order,String> cGl;
     public TableColumn<Order,Integer> cCMT;
     public TableColumn<Order,Integer> cTotal;
@@ -39,7 +41,7 @@ public class ListBillController implements Initializable {
         cCusName.setCellValueFactory(new PropertyValueFactory<>("cusName"));
         cTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
         cEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        cTime.setCellValueFactory(new PropertyValueFactory<>("time"));
+
         cGl.setCellValueFactory(new PropertyValueFactory<>("gl"));
         cCMT.setCellValueFactory(new PropertyValueFactory<>("cmt"));
         cTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
@@ -59,8 +61,8 @@ public class ListBillController implements Initializable {
     public void backToList(ActionEvent actionEvent) throws IOException {
         Parent listScene = FXMLLoader.load(getClass().getResource("../list/list.fxml"));
         Scene sc = new Scene(listScene,1280,800);
-        Main.rootStage.setTitle("List Cars");
-        Main.rootStage.setScene(sc);
+        rootStage.setTitle("List Cars");
+        rootStage.setScene(sc);
 
     }
 }

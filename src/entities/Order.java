@@ -10,7 +10,7 @@ public class Order {
     private String cusName;
     private String tel;
     private String email;
-    private Integer time;
+
     private String gl;
     private Integer cmt;
     private Integer total;
@@ -67,12 +67,12 @@ public class Order {
     public Order() {
     }
 
-    public Order(Integer cusId, String cusName, String tel, String email, Integer time,String gl,Integer cmt,Integer total,String carBrand,String carName,Integer carPrice,Date nbd,Date nkt) {
+    public Order(Integer cusId, String cusName, String tel, String email,String gl,Integer cmt,Integer total,String carBrand,String carName,Integer carPrice,Date nbd,Date nkt) {
         this.cusId = cusId;
         this.cusName = cusName;
         this.tel = tel;
         this.email = email;
-        this.time = time;
+
         this.gl=gl;
         this.cmt=cmt;
         this.total=total;
@@ -150,13 +150,7 @@ public class Order {
         this.email = email;
     }
 
-    public Integer getTime() {
-        return time;
-    }
 
-    public void setTime(Integer status) {
-        this.time = status;
-    }
     public Button getPay() {
         return pay;
     }

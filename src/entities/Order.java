@@ -1,13 +1,25 @@
 package entities;
 
+import javafx.car.listBill.ListBillController;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Order {
     private Integer cusId;
+    private Integer id;
     private String cusName;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     private String tel;
     private String email;
 
@@ -23,6 +35,7 @@ public class Order {
     public Integer carPrice;
     public Date nbd;
     public Date nkt;
+
 
     public String getCarBrand() {
         return carBrand;
@@ -67,12 +80,11 @@ public class Order {
     public Order() {
     }
 
-    public Order(Integer cusId, String cusName, String tel, String email,String gl,Integer cmt,Integer total,String carBrand,String carName,Integer carPrice,Date nbd,Date nkt) {
+    public Order(Integer cusId, String cusName, String tel, String email,String gl,Integer cmt,Integer total,String carBrand,String carName,Integer carPrice,Date nbd,Date nkt,Integer id) {
         this.cusId = cusId;
         this.cusName = cusName;
         this.tel = tel;
         this.email = email;
-
         this.gl=gl;
         this.cmt=cmt;
         this.total=total;
@@ -81,9 +93,11 @@ public class Order {
         this.carPrice=carPrice;
         this.nbd=nbd;
         this.nkt=nkt;
+        this.id =id;
         this.pay = new Button("Pay");
         this.pay.setOnAction(event -> {
             try {
+
 
 
                 

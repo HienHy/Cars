@@ -19,11 +19,10 @@ public class OrderRepository implements IRepository<Order>{
             String sql = "select * from orders";
             ResultSet rs = connector.query(sql);
             while (rs.next()){
-                int id = rs.getInt("cusId");
+                int cusId = rs.getInt("cusId");
                 String name = rs.getString("cusName");
                 String tel = rs.getString("tel");
                 String email = rs.getString("email");
-
                 String gl = rs.getString("gl");
                 int cmt = rs.getInt("cmt");
                 int total = rs.getInt("total");
@@ -32,9 +31,10 @@ public class OrderRepository implements IRepository<Order>{
                 int carPrice = rs.getInt("carPrice");
                 Date nbd = rs.getDate("nbd");
                 Date nkt = rs.getDate("nkt");
+                int id = rs.getInt("id");
 
 
-                Order s = new Order(id,name,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt);
+                Order s = new Order(cusId,name,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt,id);
                 ls.add(s);
             }
 
@@ -52,7 +52,7 @@ public class OrderRepository implements IRepository<Order>{
     public boolean create(Order s) {
         try {
             Connector connector = Connector.getInstance();
-            String sql_txt = "insert into orders(cusName,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql_txt = "insert into orders(cusName,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt,id) values(?,?,?,?,?,?,?,?,?,?,?,?)";
             ArrayList parameters = new ArrayList();
             parameters.add(s.getCusName());
             parameters.add(s.getTel());
@@ -65,8 +65,9 @@ public class OrderRepository implements IRepository<Order>{
             parameters.add(s.getCarPrice());
             parameters.add(s.getNbd());
             parameters.add(s.getNkt());
+            parameters.add(s.getId());
 
-            System.out.println(12345);
+
 
             return connector.execute(sql_txt, parameters);
 

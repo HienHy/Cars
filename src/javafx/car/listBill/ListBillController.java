@@ -35,6 +35,7 @@ public class ListBillController implements Initializable {
     public TableColumn<Order,Integer> cCMT;
     public TableColumn<Order,Integer> cTotal;
     public TableColumn<Car, Button> cAction1;
+    public static Order listCar;
 
     private ObservableList<Order> ls = FXCollections.observableArrayList();
     public void initialize(URL location, ResourceBundle resources) {

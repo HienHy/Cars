@@ -7,27 +7,27 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.car.list.ListController">
+<Pane fx:id="list" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="/css/listCss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.car.list.ListController">
    <children>
-      <Button layoutX="300.0" layoutY="78.0" mnemonicParsing="false" onAction="#search" prefHeight="50.0" prefWidth="150.0" text="Search">
+      <Button fx:id="searchBn" layoutX="300.0" layoutY="78.0" mnemonicParsing="false" onAction="#search" prefHeight="50.0" prefWidth="150.0" text="Search">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <TableView fx:id="tbCar" layoutY="150.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="1280.0">
+      <TableView fx:id="tbCar" layoutX="3.0" layoutY="200.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="1280.0">
         <columns>
           <TableColumn fx:id="cBrand" prefWidth="250.0" text="Brand" />
           <TableColumn fx:id="cName" prefWidth="300.0" text="Name" />
             <TableColumn fx:id="cDeposit" prefWidth="200.0" text="Deposit" />
             <TableColumn fx:id="cPrice" minWidth="0.0" prefWidth="200.0" text="Price/Day" />
             <TableColumn fx:id="cStatus" minWidth="0.0" prefWidth="180.0" text="Status" />
-            <TableColumn fx:id="cAction" prefWidth="150.0" text="Action"/>
+            <TableColumn fx:id="cAction" prefWidth="150.0" text="Action" />
         </columns>
       </TableView>
-       <Button layoutX="1077.0" layoutY="78.0" mnemonicParsing="false" onAction="#backToList" prefHeight="50.0" prefWidth="200.0" text="ListBill" />
+       <Button fx:id="listBn" layoutX="1077.0" layoutY="78.0" mnemonicParsing="false" onAction="#backToList" prefHeight="50.0" prefWidth="200.0" text="ListBill" />
 
        <TextField fx:id="txtSearch" layoutY="77.0" prefHeight="50.0" prefWidth="300.0" promptText="Search By Car Name" />
-      <Text layoutX="540.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List Cars" textAlignment="CENTER" wrappingWidth="200.0">
+      <Text layoutX="540.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List Cars" textAlignment="CENTER" wrappingWidth="200.0" fx:id="textTitle" >
          <font>
             <Font name="Apple SD Gothic Neo Bold" size="39.0" />
          </font></Text>

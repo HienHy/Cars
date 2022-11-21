@@ -8,6 +8,7 @@ import javafx.car.create.CreateController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import java.util.Objects;
@@ -19,7 +20,7 @@ public class Car {
 
     private Integer deposit;
     private Integer price;
-    private boolean status;
+    private Boolean status;
     private Button rent;
 
 
@@ -35,7 +36,7 @@ public class Car {
     }
 
 
-    public Car(Integer id,  String brand,String name, Integer deposit, Integer price, boolean status) {
+    public Car(Integer id,  String brand,String name, Integer deposit, Integer price, Boolean status){
         this.id = id;
         this.brand = brand;
         this.name = name;
@@ -45,15 +46,22 @@ public class Car {
         this.rent = new Button("Rent");
         this.rent.setOnAction(event -> {
             try {
-
-                    CreateController.rentCar = this;
-                    Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/javafx/car/create/create.fxml"))));
-                    Scene sc = new Scene(createForm, 1280, 800);
-                    rootStage.setScene(sc);
-                    rootStage.setTitle("Create Bill");
+                CreateController.rentCar = this;
+                if (!this.status ){
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setHeaderText("Xe da cho thue");
+                    alert.show();
+                    return;
+                }
+                Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/javafx/car/create/create.fxml"))));
+                Scene sc = new Scene(createForm, 1280, 800);
+                rootStage.setScene(sc);
+                rootStage.setTitle("Create Bill");
 
 
             }catch (Exception e){
+
+
 
             }
 

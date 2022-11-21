@@ -43,7 +43,22 @@ public class CarRepository implements IRepository<Car>{
 
     @Override
     public boolean update(Car s) {
-        return false;
+        try {
+            Connector connector = Connector.getInstance();
+            String sql = "update car set status = ? where id = ?";
+
+            ArrayList parameters = new ArrayList();
+            parameters.add(s.getStatus());
+            parameters.add(s.getId());
+
+            return connector.execute(sql, parameters);
+        }catch (Exception e){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(e.getMessage());
+                alert.show();
+        }
+
+            return false;
     }
 
     @Override

@@ -1,6 +1,8 @@
 package javafx.car.list;
 
 import entities.Car;
+import entities.Order;
+import helper.ImageTableCell;
 import impls.CarRepository;
 import javafx.Main;
 import javafx.collections.FXCollections;
@@ -12,9 +14,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Blob;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import static helper.RootStage.rootStage;
@@ -23,6 +28,7 @@ import static helper.RootStage.rootStage;
 public class ListController implements Initializable {
 
     public TableView<Car> tbCar;
+    public TableView<Order> exampleTable;
     public TableColumn<Car,String> cName;
     public TableColumn<Car,String> cBrand;
     public TableColumn<Car,Integer> cDeposit;
@@ -31,10 +37,8 @@ public class ListController implements Initializable {
 
     public TableColumn<Car, Button> cAction;
 
-
-
-
     public TextField txtSearch;
+    public TableColumn<Car, Image> cImg;
 
     private ObservableList<Car> ls = FXCollections.observableArrayList();
 
@@ -42,11 +46,13 @@ public class ListController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
         cName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        cImg.setCellValueFactory(new PropertyValueFactory<>("img"));
+        cImg.setCellFactory(param -> new ImageTableCell<>());
+
         cDeposit.setCellValueFactory(new PropertyValueFactory<>("deposit"));
         cPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         cStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
         cAction.setCellValueFactory(new PropertyValueFactory<>("Rent"));
-
 
 
 
@@ -60,7 +66,6 @@ public class ListController implements Initializable {
             alert.show();
         }
     }
-
 
 
     public void search(ActionEvent actionEvent) {
@@ -90,3 +95,5 @@ public class ListController implements Initializable {
         rootStage.setScene(sc);
     }
 }
+
+

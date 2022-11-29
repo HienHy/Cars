@@ -30,19 +30,17 @@ public class ListBillController implements Initializable {
     public TableColumn<Order,String> cCusName;
     public TableColumn<Order,String> cTel;
     public TableColumn<Order,String> cEmail;
-
     public TableColumn<Order,String> cGl;
     public TableColumn<Order,Integer> cCMT;
     public TableColumn<Order,Integer> cTotal;
     public TableColumn<Car, Button> cAction1;
-    public static Order listCar;
+
 
     private ObservableList<Order> ls = FXCollections.observableArrayList();
     public void initialize(URL location, ResourceBundle resources) {
         cCusName.setCellValueFactory(new PropertyValueFactory<>("cusName"));
         cTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
         cEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-
         cGl.setCellValueFactory(new PropertyValueFactory<>("gl"));
         cCMT.setCellValueFactory(new PropertyValueFactory<>("cmt"));
         cTotal.setCellValueFactory(new PropertyValueFactory<>("total"));

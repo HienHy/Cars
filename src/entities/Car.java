@@ -3,15 +3,25 @@ package entities;
 
 import static helper.RootStage.rootStage;
 
+import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.car.create.CreateController;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.Objects;
+
 
 public class Car {
     private Integer id;
@@ -21,6 +31,16 @@ public class Car {
     private Integer deposit;
     private Integer price;
     private Boolean status;
+    public ReadOnlyObjectWrapper<Image> img;
+
+    public Image getImg() {
+        return img.get();
+    }
+
+    public ReadOnlyObjectProperty<Image> imageProperty() {
+        return img.getReadOnlyProperty();
+    }
+
     private Button rent;
 
 
@@ -35,33 +55,42 @@ public class Car {
         this.rent = rent;
     }
 
+    private static Image convertToJavaFXImage(byte[] raw, final int width, final int height) {
+        WritableImage image = new WritableImage(width, height);
 
-    public Car(Integer id,  String brand,String name, Integer deposit, Integer price, Boolean status){
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(raw);
+            BufferedImage read = ImageIO.read(bis);
+            image = SwingFXUtils.toFXImage(read, null);
+        } catch (IOException ex) {
+//            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return image;
+    }
+
+
+    public Car(Integer id, String brand,String name, Integer deposit, Integer price, Boolean status, byte[] imgByte){
         this.id = id;
         this.brand = brand;
         this.name = name;
         this.deposit = deposit;
         this.price = price;
         this.status = status;
+        this.img = new ReadOnlyObjectWrapper<>(convertToJavaFXImage(imgByte, 100, 100));
+
         this.rent = new Button("Rent");
+        if (!this.status ){
+            this.rent.setVisible(false);
+        }
         this.rent.setOnAction(event -> {
             try {
                 CreateController.rentCar = this;
-                if (!this.status ){
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setHeaderText("Xe da cho thue");
-                    alert.show();
-                    return;
-                }
                 Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/javafx/car/create/create.fxml"))));
                 Scene sc = new Scene(createForm, 1280, 800);
                 rootStage.setScene(sc);
                 rootStage.setTitle("Create Bill");
 
-
             }catch (Exception e){
-
-
 
             }
 

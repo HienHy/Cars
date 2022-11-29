@@ -1,5 +1,8 @@
 package entities;
 
+import enums.RepoType;
+import factory.Factory;
+import impls.CarRepository;
 import javafx.car.listBill.ListBillController;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -9,16 +12,8 @@ import java.util.List;
 
 public class Order {
     private Integer cusId;
-    private Integer id;
-    private String cusName;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private Integer carId;
+    private Boolean status;
 
     private String tel;
     private String email;
@@ -29,14 +24,29 @@ public class Order {
 
     private Button pay;
 
-
     public String carBrand;
     public String carName;
     public Integer carPrice;
     public Date nbd;
     public Date nkt;
 
+    public Boolean getStatus() {
+        return status;
+    }
 
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    private String cusName;
+
+    public Integer getCarId() {
+        return carId;
+    }
+
+    public void setCarId(Integer carId) {
+        this.carId = carId;
+    }
     public String getCarBrand() {
         return carBrand;
     }
@@ -80,7 +90,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(Integer cusId, String cusName, String tel, String email,String gl,Integer cmt,Integer total,String carBrand,String carName,Integer carPrice,Date nbd,Date nkt,Integer id) {
+    public Order(Integer cusId, String cusName, String tel, String email,String gl,Integer cmt,Integer total,String carBrand,String carName,Integer carPrice,Date nbd,Date nkt,Integer carId,boolean status) {
         this.cusId = cusId;
         this.cusName = cusName;
         this.tel = tel;
@@ -93,14 +103,15 @@ public class Order {
         this.carPrice=carPrice;
         this.nbd=nbd;
         this.nkt=nkt;
-        this.id =id;
+        this.carId =carId;
+        this.status=status;
         this.pay = new Button("Pay");
         this.pay.setOnAction(event -> {
             try {
 
 
 
-                
+
             }catch (Exception e){
 
             }

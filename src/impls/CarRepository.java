@@ -5,6 +5,7 @@ import entities.Car;
 import interfaces.IRepository;
 import javafx.scene.control.Alert;
 
+import java.sql.Blob;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -24,7 +25,11 @@ public class CarRepository implements IRepository<Car>{
                 int deposit = rs.getInt("deposit");
                 int price = rs.getInt("price");
                 boolean status = rs.getBoolean("status");
-                Car cs = new Car(id,brand,name,deposit,price,status);
+                //(assuming you have a ResultSet named RS)
+                Blob blob = rs.getBlob("img");
+                int blobLength = (int) blob.length();
+                byte[] imgByte = blob.getBytes(1, blobLength);
+                Car cs = new Car(id,brand,name,deposit,price,status,imgByte);
                 cas.add(cs);
             }
 

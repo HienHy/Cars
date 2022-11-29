@@ -73,6 +73,8 @@ public class Connector {
                 stt.setDate(i + 1, (Date) parameters.get(i));
             }else if (parameters.get(i) instanceof Boolean) {
                 stt.setBoolean(i + 1, (Boolean) parameters.get(i));
+            }else if (parameters.get(i) instanceof Byte) {
+                stt.setByte(i + 1, (Byte) parameters.get(i));
             }
 
         }

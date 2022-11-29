@@ -1,5 +1,6 @@
 package impls;
 
+import entities.Car;
 import helper.Connector;
 import entities.Order;
 import interfaces.IRepository;
@@ -8,6 +9,7 @@ import javafx.scene.control.Alert;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.sql.Date;
+
 
 
 public class OrderRepository implements IRepository<Order>{
@@ -31,10 +33,11 @@ public class OrderRepository implements IRepository<Order>{
                 int carPrice = rs.getInt("carPrice");
                 Date nbd = rs.getDate("nbd");
                 Date nkt = rs.getDate("nkt");
-                int id = rs.getInt("id");
+                int carId = rs.getInt("carId");
+                boolean status = rs.getBoolean("status");
 
 
-                Order s = new Order(cusId,name,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt,id);
+                Order s = new Order(cusId,name,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt,carId,status);
                 ls.add(s);
             }
 
@@ -52,7 +55,7 @@ public class OrderRepository implements IRepository<Order>{
     public boolean create(Order s) {
         try {
             Connector connector = Connector.getInstance();
-            String sql_txt = "insert into orders(cusName,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt,id) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql_txt = "insert into orders(cusName,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt,carId,status) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ArrayList parameters = new ArrayList();
             parameters.add(s.getCusName());
             parameters.add(s.getTel());
@@ -65,7 +68,9 @@ public class OrderRepository implements IRepository<Order>{
             parameters.add(s.getCarPrice());
             parameters.add(s.getNbd());
             parameters.add(s.getNkt());
-            parameters.add(s.getId());
+            parameters.add(s.getCarId());
+            parameters.add(s.getStatus());
+
 
 
 
@@ -80,6 +85,8 @@ public class OrderRepository implements IRepository<Order>{
 
     @Override
     public boolean update(Order s) {
+
+
         return false;
     }
 

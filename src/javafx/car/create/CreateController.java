@@ -59,6 +59,7 @@ public class CreateController implements Initializable {
     public void submit(ActionEvent actionEvent) {
         try {
             if (!patternMatchesEmail(txtEmail.getText()))throw new Exception("Email không hợp lệ");
+
             Integer cmt =Integer.parseInt(txtCMT.getText());
             Integer cpc =Integer.parseInt(carPrice.getText());
             LocalDate d = nbd.getValue();
@@ -68,13 +69,12 @@ public class CreateController implements Initializable {
             long noDay =Math.abs((ntt.getTime() - dd.getTime()) / (24 * 3600 * 1000));
             Integer k = rentCar.getPrice()*Math.toIntExact(noDay);
             if (txtTel.getText().startsWith("0")|| txtTel.getText().startsWith("+84")) {
-                Order s = new Order(null, txtName.getText(),txtTel.getText(),txtEmail.getText(),txtGl.getText(),cmt,k,carBrand.getText(),carName.getText(),cpc,dd,ntt, rentCar.getId());
+                Order s = new Order(null, txtName.getText(),txtTel.getText(),txtEmail.getText(),txtGl.getText(),cmt,k,carBrand.getText(),carName.getText(),cpc,dd,ntt, rentCar.getId(), rentCar.getStatus());
                 OrderRepository csc =(OrderRepository) Factory.createRepository(RepoType.ORDER);
                 CarRepository car =(CarRepository) Factory.createRepository(RepoType.CAR);
                 rentCar.setStatus(false);
                 if (csc.create(s) && car.update(rentCar)) {
                     backToList(null);
-
                     return;
                 }
 

@@ -15,9 +15,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import javax.imageio.IIOException;
+
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -34,6 +35,7 @@ public class ListBillController implements Initializable {
     public TableColumn<Order,Integer> cTotal;
     public TableColumn<Car, Button> cAction1;
     public TextField txtSearchNumber;
+    public TableColumn<Order, Date> cTime;
 
 
     private ObservableList<Order> ls = FXCollections.observableArrayList();
@@ -44,7 +46,11 @@ public class ListBillController implements Initializable {
         cGl.setCellValueFactory(new PropertyValueFactory<>("gl"));
         cCMT.setCellValueFactory(new PropertyValueFactory<>("cmt"));
         cTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        cTime.setCellValueFactory(new PropertyValueFactory<>("nkt"));
+
         cAction1.setCellValueFactory(new PropertyValueFactory<>("Pay"));
+
+
 
         try {
             OrderRepository sr = new OrderRepository();

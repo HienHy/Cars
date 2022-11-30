@@ -17,8 +17,9 @@
           <TableColumn fx:id="cTel" prefWidth="200.0" text="Tel" />
             <TableColumn fx:id="cEmail" prefWidth="200.0" text="Email" />
             <TableColumn fx:id="cCMT" prefWidth="150.0" text="CMT" />
-            <TableColumn fx:id="cGl" prefWidth="200.0" text="GL" />
+            <TableColumn fx:id="cGl" prefWidth="100.0" text="GL" />
             <TableColumn fx:id="cTotal" prefWidth="130.0" text="Total" />
+            <TableColumn fx:id="cTime" prefWidth="200.0" text="End Date" />
             <TableColumn fx:id="cAction1" prefWidth="100.0" text="Action" />
         </columns>
       </TableView>

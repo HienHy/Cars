@@ -28,7 +28,7 @@ import static helper.RootStage.rootStage;
 public class ListController implements Initializable {
 
     public TableView<Car> tbCar;
-    public TableView<Order> exampleTable;
+
     public TableColumn<Car,String> cName;
     public TableColumn<Car,String> cBrand;
     public TableColumn<Car,Integer> cDeposit;

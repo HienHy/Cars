@@ -88,7 +88,7 @@ public class Car {
                 Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/javafx/car/create/create.fxml"))));
                 Scene sc = new Scene(createForm, 1280, 800);
                 rootStage.setScene(sc);
-                rootStage.setTitle("Create Bill");
+                rootStage.setTitle("CarBareezy");
 
             }catch (Exception e){
 

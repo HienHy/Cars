@@ -91,7 +91,7 @@ public class ListController implements Initializable {
     public void backToList(ActionEvent actionEvent) throws IOException {
         Parent listScene = FXMLLoader.load(getClass().getResource("../listBill/orderList.fxml"));
         Scene sc = new Scene(listScene,1280,800);
-        rootStage.setTitle("List Bill");
+        rootStage.setTitle("CarBareezy");
         rootStage.setScene(sc);
     }
 }

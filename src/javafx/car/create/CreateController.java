@@ -95,7 +95,7 @@ public class CreateController implements Initializable {
     public void backToList(ActionEvent actionEvent) throws Exception{
         Parent listScene = FXMLLoader.load(getClass().getResource("../list/list.fxml"));
         Scene sc = new Scene(listScene,1280,800);
-        rootStage.setTitle("List Cars");
+        rootStage.setTitle("CarBareezy");
         rootStage.setScene(sc);
     }
 

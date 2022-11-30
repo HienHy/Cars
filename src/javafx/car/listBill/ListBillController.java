@@ -12,16 +12,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.imageio.IIOException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+
 import static helper.RootStage.rootStage;
 
 
@@ -34,6 +33,7 @@ public class ListBillController implements Initializable {
     public TableColumn<Order,Integer> cCMT;
     public TableColumn<Order,Integer> cTotal;
     public TableColumn<Car, Button> cAction1;
+    public TextField txtSearchNumber;
 
 
     private ObservableList<Order> ls = FXCollections.observableArrayList();
@@ -57,11 +57,32 @@ public class ListBillController implements Initializable {
         }
     }
 
+
     public void backToList(ActionEvent actionEvent) throws IOException {
         Parent listScene = FXMLLoader.load(getClass().getResource("../list/list.fxml"));
         Scene sc = new Scene(listScene,1280,800);
         rootStage.setTitle("List Cars");
         rootStage.setScene(sc);
 
+    }
+
+    public void search(ActionEvent actionEvent) {
+        try {
+            String s = txtSearchNumber.getText();
+            if(s.isEmpty()){
+                tbBill.setItems(ls);
+                throw new Exception("Vui lòng nhập từ cần tìm kiếm");
+            }
+
+            ObservableList<Order> results = ls.stream()
+                    .filter(order -> order.getTel().contains(s))
+                    .collect(Collectors.toCollection(FXCollections::observableArrayList));
+            tbBill.setItems(results);
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setHeaderText(e.getMessage());
+            alert.show();
+        }
     }
 }

@@ -5,6 +5,10 @@
     -secondary: #375FCB;
     -tertiary: #fcc200;
     -tertiary-armed: #FDDD71;
+    -fx-font-family:'Helvetica', Arial, sans-serif;
+    -fx-background-color: -bg-gradient;
+
+
 }
 
 .background-pane{
@@ -58,37 +62,16 @@
     -fx-font-size: 14;
 }
 
-.app-text{
-    -fx-text-fill: #375FCB;
-    -fx-font-style: italic;
-    -fx-font-size: 14;
-}
 
-.error-label{
-    -fx-text-fill: #375FCB ;
-    -fx-font-weight: bold;
-    -fx-font-size: 14;
-    -fx-background-color: linear-gradient(to right, #0f0c2977, #302b6377, #24243e77);
-    -fx-background-radius: 10px;
-    -fx-padding: 10px;
-    -fx-alignment: center;
-
-    -width: 350;
-    -fx-min-width: -width;
-    -fx-max-width: -width;
-}
 
 .button{
     -fill: black;
     -fx-background-color: -hlight-gradient;
-    -fx-min-height: -height;
-    -fx-min-width: -width;
-    -fx-max-height: -height;
-    -fx-max-width: -width;
+
 }
 
 .button:hover {
--fx-background-color: -tertiary;
+-fx-background-color: #ffff;
 }
 
 .button:armed {
@@ -152,7 +135,6 @@
     -fx-border-color: transparent;
     -fx-padding: 2 0 2 10px;
     -fx-font-size: 20px;
-    -fx-pref-height: 200px;
 
 
 
@@ -160,8 +142,7 @@
 
 .table-view .table-row-cell .text-field{
 
-    -fx-alignment: center;
-
+-fx-font-weight: 600;
 }
 
 .table-row-cell:hover {

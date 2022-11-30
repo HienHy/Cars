@@ -17,7 +17,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         rootStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("car/list/list.fxml"));
-        primaryStage.setTitle("Home");
+        primaryStage.setTitle("CarBareezy");
         primaryStage.setScene(new Scene(root,1280,800));
         primaryStage.show();
     }

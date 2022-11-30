@@ -5,26 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e02217c7-4d82-4ae5-b97d-2e08528d7be7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/helper/ImageTableCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Cars/css/createCus.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Cars/css/listBill.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Cars/css/listCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cars/css/listCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Cars/entities/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cars/entities/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Cars/entities/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cars/entities/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Cars/helper/Connector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cars/helper/Connector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Cars/impls/CarRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cars/impls/CarRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Cars/impls/OrderRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cars/impls/OrderRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Cars/javafx/car/create/CreateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cars/javafx/car/create/CreateController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Cars/javafx/car/create/create.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cars/javafx/car/create/create.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Cars/javafx/car/list/ListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cars/javafx/car/list/ListController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Cars/javafx/car/list/list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cars/javafx/car/list/list.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Cars/javafx/car/listBill/ListBillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cars/javafx/car/listBill/ListBillController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Cars/javafx/car/listBill/orderList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cars/javafx/car/listBill/orderList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/createCus.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/create.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/listBill.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/listCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/listCss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helper/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/helper/Connector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/impls/CarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/impls/CarRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/impls/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/impls/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/javafx/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/javafx/car/create/CreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/car/create/CreateController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/javafx/car/create/create.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/car/create/create.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/javafx/car/list/ListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/car/list/ListController.java" afterDir="false" />
@@ -71,6 +64,11 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.idea" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.Main" />
@@ -105,7 +103,8 @@
       <workItem from="1669259175703" duration="12583000" />
       <workItem from="1669475798178" duration="1079000" />
       <workItem from="1669477546779" duration="468000" />
-      <workItem from="1669628623146" duration="5908000" />
+      <workItem from="1669628623146" duration="10318000" />
+      <workItem from="1669701990652" duration="2693000" />
     </task>
     <servers />
   </component>

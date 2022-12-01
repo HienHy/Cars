@@ -3,6 +3,7 @@ package entities;
 
 import static helper.RootStage.rootStage;
 
+import helper.Language;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.car.create.CreateController;
@@ -78,7 +79,7 @@ public class Car {
         this.status = status;
         this.img = new ReadOnlyObjectWrapper<>(convertToJavaFXImage(imgByte, 100, 100));
 
-        this.rent = new Button("Rent");
+        this.rent = new Button(Language._msg.getString("rent"));
         if (!this.status ){
             this.rent.setVisible(false);
         }

@@ -1,10 +1,9 @@
 package javafx.car.list;
 
 import entities.Car;
-import entities.Order;
 import helper.ImageTableCell;
+import helper.Language;
 import impls.CarRepository;
-import javafx.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,11 +14,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Blob;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import static helper.RootStage.rootStage;
@@ -39,6 +38,10 @@ public class ListController implements Initializable {
 
     public TextField txtSearch;
     public TableColumn<Car, Image> cImg;
+    public Button bnSearch;
+    public Button bnBackToList;
+    public Text listCar;
+
 
     private ObservableList<Car> ls = FXCollections.observableArrayList();
 
@@ -48,11 +51,13 @@ public class ListController implements Initializable {
         cName.setCellValueFactory(new PropertyValueFactory<>("name"));
         cImg.setCellValueFactory(new PropertyValueFactory<>("img"));
         cImg.setCellFactory(param -> new ImageTableCell<>());
-
         cDeposit.setCellValueFactory(new PropertyValueFactory<>("deposit"));
         cPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         cStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
         cAction.setCellValueFactory(new PropertyValueFactory<>("Rent"));
+
+
+
 
 
 
@@ -93,6 +98,43 @@ public class ListController implements Initializable {
         Scene sc = new Scene(listScene,1280,800);
         rootStage.setTitle("CarBareezy");
         rootStage.setScene(sc);
+    }
+
+    public void vn(ActionEvent actionEvent) {
+        Locale.setDefault(new Locale("vi","VN"));
+        Language._msg =ResourceBundle.getBundle("i18n.messages");
+        cBrand.setText(Language._msg.getString("brand"));
+        cName.setText(Language._msg.getString("carName"));
+        cImg.setText(Language._msg.getString("img"));
+        cDeposit.setText(Language._msg.getString("deposit"));
+        cPrice.setText(Language._msg.getString("price"));
+        cStatus.setText(Language._msg.getString("status"));
+        cAction.setText(Language._msg.getString("action"));
+        bnSearch.setText(Language._msg.getString("search"));
+        bnBackToList.setText(Language._msg.getString("backToList"));
+        txtSearch.setText(Language._msg.getString("searchName"));
+        listCar.setText(Language._msg.getString("listCar"));
+
+
+    }
+
+    public void en(ActionEvent actionEvent) {
+        Locale.setDefault(new Locale("en","VN"));
+        Language._msg =ResourceBundle.getBundle("i18n.messages");
+        cBrand.setText(Language._msg.getString("brand"));
+        cName.setText(Language._msg.getString("carName"));
+        cImg.setText(Language._msg.getString("img"));
+        cDeposit.setText(Language._msg.getString("deposit"));
+        cPrice.setText(Language._msg.getString("price"));
+        cStatus.setText(Language._msg.getString("status"));
+        cAction.setText(Language._msg.getString("action"));
+        bnSearch.setText(Language._msg.getString("search"));
+        bnBackToList.setText(Language._msg.getString("backToList"));
+        txtSearch.setText(Language._msg.getString("searchName"));
+        listCar.setText(Language._msg.getString("listCar"));
+
+
+
     }
 }
 

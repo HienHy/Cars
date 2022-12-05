@@ -18,6 +18,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -30,7 +31,7 @@ public class ListController implements Initializable {
 
     public TableColumn<Car,String> cName;
     public TableColumn<Car,String> cBrand;
-    public TableColumn<Car,Integer> cDeposit;
+    public TableColumn<Car, String> cDeposit;
     public TableColumn<Car,Integer> cPrice;
     public TableColumn<Car,Boolean> cStatus;
 
@@ -45,6 +46,10 @@ public class ListController implements Initializable {
 
     private ObservableList<Car> ls = FXCollections.observableArrayList();
 
+
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
@@ -57,14 +62,15 @@ public class ListController implements Initializable {
         cAction.setCellValueFactory(new PropertyValueFactory<>("Rent"));
 
 
-
-
-
-
         try {
+
+
+
             CarRepository sr = new CarRepository();
+
             ls.addAll(sr.all());
             tbCar.setItems(ls);
+
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(e.getMessage());

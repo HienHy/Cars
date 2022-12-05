@@ -19,6 +19,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -47,13 +49,13 @@ public class ListBillController implements Initializable {
         cCMT.setCellValueFactory(new PropertyValueFactory<>("cmt"));
         cTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
         cTime.setCellValueFactory(new PropertyValueFactory<>("nkt"));
-
         cAction1.setCellValueFactory(new PropertyValueFactory<>("Pay"));
 
 
 
         try {
             OrderRepository sr = new OrderRepository();
+
             ls.addAll(sr.all());
             tbBill.setItems(ls);
         }catch (Exception e){

@@ -65,7 +65,7 @@ public class OrderRepository implements IRepository<Order>{
             parameters.add(s.getTotal());
             parameters.add(s.getCarBrand());
             parameters.add(s.getCarName());
-            parameters.add(s.getCarPrice());
+            parameters.add(s.getTotal());
             parameters.add(s.getNbd());
             parameters.add(s.getNkt());
             parameters.add(s.getCarId());

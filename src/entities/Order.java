@@ -8,7 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.sql.Date;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class Order {
     private Integer cusId;
@@ -22,6 +24,8 @@ public class Order {
     private Integer cmt;
     private Integer total;
 
+
+
     private Button pay;
 
     public String carBrand;
@@ -29,7 +33,6 @@ public class Order {
     public Integer carPrice;
     public Date nbd;
     public Date nkt;
-
     public Boolean getStatus() {
         return status;
     }

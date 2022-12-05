@@ -21,6 +21,8 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Objects;
 
 
@@ -29,9 +31,19 @@ public class Car {
     private String brand;
     private String name;
 
-    private Integer deposit;
-    private Integer price;
+    private String deposit;
+    private String price;
+    private Integer price_origin;
     private Boolean status;
+
+    public Integer getPrice_origin() {
+        return price_origin;
+    }
+
+    public void setPrice_origin(Integer price_origin) {
+        this.price_origin = price_origin;
+    }
+
     public ReadOnlyObjectWrapper<Image> img;
 
     public Image getImg() {
@@ -46,6 +58,7 @@ public class Car {
 
 
     public Car() {
+
     }
 
     public Button getRent() {
@@ -55,6 +68,8 @@ public class Car {
     public void setRent(Button rent) {
         this.rent = rent;
     }
+
+
 
     private static Image convertToJavaFXImage(byte[] raw, final int width, final int height) {
         WritableImage image = new WritableImage(width, height);
@@ -74,10 +89,14 @@ public class Car {
         this.id = id;
         this.brand = brand;
         this.name = name;
-        this.deposit = deposit;
-        this.price = price;
+        this.deposit = convertCurrency(deposit);
+        this.price_origin = price;
+        this.price = convertCurrency(price);
+
+
         this.status = status;
         this.img = new ReadOnlyObjectWrapper<>(convertToJavaFXImage(imgByte, 100, 100));
+
 
         this.rent = new Button(Language._msg.getString("rent"));
         if (!this.status ){
@@ -97,6 +116,12 @@ public class Car {
 
         });
 
+    }
+
+    public String convertCurrency(int currency) {
+        Locale lc =new Locale("vi","VN");
+        NumberFormat nf = NumberFormat.getCurrencyInstance(lc);
+        return nf.format(currency);
     }
 
     public Integer getId() {
@@ -123,19 +148,19 @@ public class Car {
         this.brand = brand;
     }
 
-    public Integer getDeposit() {
+    public String getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(Integer deposit) {
+    public void setDeposit(String deposit) {
         this.deposit = deposit;
     }
 
-    public Integer getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

@@ -7,16 +7,23 @@ import javafx.scene.control.Alert;
 
 import java.sql.Blob;
 import java.sql.ResultSet;
+
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
+
 
 public class CarRepository implements IRepository<Car>{
+
     @Override
     public ArrayList<Car> all() {
         ArrayList<Car> cas=new ArrayList<>();
+
         try {
             Connector connector = Connector.getInstance();
             String sql = "select * from car";
             ResultSet rs = connector.query(sql);
+
 
             while (rs.next()){
                 int id = rs.getInt("id");
@@ -25,6 +32,7 @@ public class CarRepository implements IRepository<Car>{
                 int deposit = rs.getInt("deposit");
                 int price = rs.getInt("price");
                 boolean status = rs.getBoolean("status");
+
                 //(assuming you have a ResultSet named RS)
                 Blob blob = rs.getBlob("img");
                 int blobLength = (int) blob.length();

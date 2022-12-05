@@ -21,9 +21,9 @@
           <TableColumn fx:id="cBrand" prefWidth="150.0" text="Brand" />
           <TableColumn fx:id="cName" prefWidth="150.0" text="Name" />
           <TableColumn fx:id="cImg" prefWidth="350.0" text="IMG" />
-            <TableColumn fx:id="cDeposit" prefWidth="150.0" text="Deposit" />
+            <TableColumn fx:id="cDeposit" prefWidth="200.0" text="Deposit" />
             <TableColumn fx:id="cPrice" minWidth="0.0" prefWidth="150.0" text="Price/Day" />
-            <TableColumn fx:id="cStatus" minWidth="0.0" prefWidth="150.0" text="Status" />
+            <TableColumn fx:id="cStatus" minWidth="0.0" prefWidth="100.0" text="Status" />
             <TableColumn fx:id="cAction" prefWidth="150.0" text="Action" />
         </columns>
       </TableView>

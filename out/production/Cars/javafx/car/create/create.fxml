@@ -46,6 +46,7 @@
       <TextField fx:id="carBrand" editable="false" layoutX="150.0" layoutY="200.0" prefHeight="50.0" prefWidth="400.0" />
       <TextField fx:id="carName" editable="false" layoutX="150.0" layoutY="300.0" prefHeight="50.0" prefWidth="400.0" />
       <TextField fx:id="carPrice" editable="false" layoutX="150.0" layoutY="400.0" prefHeight="50.0" prefWidth="400.0" />
+      <TextField fx:id="carPriceOrigin" editable="false" layoutX="150.0" layoutY="400.0" prefHeight="50.0" prefWidth="400.0" style="-fx-content-display: none" />
       <DatePicker fx:id="nbd" layoutX="150.0" layoutY="500.0" prefHeight="50.0" prefWidth="400.0" promptText="Start Date" />
       <DatePicker fx:id="nkt" layoutX="150.0" layoutY="600.0" prefHeight="50.0" prefWidth="400.0" promptText="End Date" />
       <Text layoutX="15.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Brand:">

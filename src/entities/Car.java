@@ -30,11 +30,26 @@ public class Car {
     private Integer id;
     private String brand;
     private String name;
-
+    private String numbers;
     private String deposit;
+    private Integer deposit_origin;
     private String price;
+
+    public Integer getDeposit_origin() {
+        return deposit_origin;
+    }
+
+    public void setDeposit_origin(Integer deposit_origin) {
+        this.deposit_origin = deposit_origin;
+    }
+
     private Integer price_origin;
-    private Boolean status;
+    private String status;
+    private Button rent;
+
+    public Car() {
+
+    }
 
     public Integer getPrice_origin() {
         return price_origin;
@@ -54,12 +69,10 @@ public class Car {
         return img.getReadOnlyProperty();
     }
 
-    private Button rent;
 
 
-    public Car() {
 
-    }
+
 
     public Button getRent() {
         return rent;
@@ -85,28 +98,26 @@ public class Car {
     }
 
 
-    public Car(Integer id, String brand,String name, Integer deposit, Integer price, Boolean status, byte[] imgByte){
+    public Car(Integer id, String brand,String name,String numbers, Integer deposit, Integer price, String status, byte[] imgByte){
         this.id = id;
         this.brand = brand;
         this.name = name;
+        this.numbers=numbers;
         this.deposit = convertCurrency(deposit);
         this.price_origin = price;
+        this.deposit_origin=deposit;
         this.price = convertCurrency(price);
-
-
         this.status = status;
         this.img = new ReadOnlyObjectWrapper<>(convertToJavaFXImage(imgByte, 100, 100));
-
-
         this.rent = new Button(Language._msg.getString("rent"));
-        if (!this.status ){
+        if (!Objects.equals(this.status, "Khả Dụng")){
             this.rent.setVisible(false);
         }
         this.rent.setOnAction(event -> {
             try {
                 CreateController.rentCar = this;
-                Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/javafx/car/create/create.fxml"))));
-                Scene sc = new Scene(createForm, 1280, 800);
+                Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/javafx/car/create/Create.fxml"))));
+                Scene sc = new Scene(createForm, 860, 800);
                 rootStage.setScene(sc);
                 rootStage.setTitle("CarBareezy");
 
@@ -122,6 +133,13 @@ public class Car {
         Locale lc =new Locale("vi","VN");
         NumberFormat nf = NumberFormat.getCurrencyInstance(lc);
         return nf.format(currency);
+    }
+    public String getNumbers() {
+        return numbers;
+    }
+
+    public void setNumbers(String numbers) {
+        this.numbers = numbers;
     }
 
     public Integer getId() {
@@ -164,11 +182,11 @@ public class Car {
         this.price = price;
     }
 
-    public boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }

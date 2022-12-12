@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="820.0" stylesheets="/css/create.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.car.pay.PayController">
+   <children>
+      <Text layoutX="246.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hoá Đơn" textAlignment="CENTER" wrappingWidth="310.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Button layoutX="78.0" layoutY="71.0" mnemonicParsing="false" onAction="#backToList" prefHeight="40.0" prefWidth="150.0" text="Danh sách xe" />
+      <TextField fx:id="cusName" editable="false" layoutX="173.0" layoutY="383.0" prefHeight="30.0" prefWidth="200.0" promptText="ten kh">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tel" editable="false" layoutX="173.0" layoutY="438.0" prefHeight="30.0" prefWidth="200.0" promptText="sdt">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="deposit" editable="false" layoutX="594.0" layoutY="491.0" prefHeight="30.0" prefWidth="200.0" promptText="tien coc">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Button layoutX="331.0" layoutY="661.0" mnemonicParsing="false" onAction="#submit" prefHeight="40.0" prefWidth="150.0" text="Thanh Toán">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tsdb" editable="false" layoutX="173.0" layoutY="548.0" prefHeight="30.0" prefWidth="200.0" promptText="tsdb">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="cmt" editable="false" layoutX="173.0" layoutY="493.0" prefHeight="30.0" prefWidth="200.0" promptText="cccd">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="carBrand" editable="false" layoutX="173.0" layoutY="153.0" prefHeight="30.0" prefWidth="200.0" promptText="hang xe" />
+      <TextField fx:id="carName" editable="false" layoutX="173.0" layoutY="212.0" prefHeight="30.0" prefWidth="200.0" promptText="ten xe" />
+      <DatePicker fx:id="ntx" layoutX="174.0" layoutY="598.0" prefHeight="30.0" prefWidth="200.0" />
+      <Text layoutX="15.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hãng xe:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên xe:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày trả dự kiến: ">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="431.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số tiền đã cọc:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tài sản đảm bảo:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CCCD/CMT:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên khách hàng:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biển số :">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <TextField fx:id="carNumber" editable="false" layoutX="173.0" layoutY="271.0" prefHeight="30.0" prefWidth="200.0" promptText="bien so" />
+      <TextField fx:id="nkt" editable="false" layoutX="173.0" layoutY="328.0" prefHeight="30.0" prefWidth="200.0" promptText="ngay tra du kien" />
+      <Text layoutX="20.0" layoutY="622.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày trả xe:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cbBgr" layoutX="593.0" layoutY="153.0" prefHeight="30.0" prefWidth="200.0" />
+      <Text layoutX="555.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tình trạng xe">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cbMam" layoutX="593.0" layoutY="271.0" prefHeight="30.0" prefWidth="200.0" />
+      <ComboBox fx:id="cbDen" layoutX="593.0" layoutY="328.0" prefHeight="30.0" prefWidth="200.0" />
+      <ComboBox fx:id="cbNoiThat" layoutX="593.0" layoutY="212.0" prefHeight="30.0" prefWidth="200.0" />
+      <Text layoutX="430.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sơn xe:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="430.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nội thất:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="430.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Đèn xe:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="430.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mâm xe:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <TextField fx:id="suaChua" editable="false" layoutX="593.0" layoutY="386.0" prefHeight="30.0" prefWidth="200.0" promptText="tong chi phi sua chua">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Text layoutX="430.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phí sửa chữa:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="431.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phí thuê xe:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <TextField fx:id="phiThue" editable="false" layoutX="592.0" layoutY="442.0" prefHeight="30.0" prefWidth="200.0" promptText="phi thue xe">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="total" editable="false" layoutX="594.0" layoutY="548.0" prefHeight="30.0" prefWidth="200.0" promptText="tổng">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Text layoutX="431.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cần thanh toán:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

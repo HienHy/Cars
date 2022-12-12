@@ -26,8 +26,8 @@ public class ImageTableCell<S> extends TableCell<S, Image> {
         }
 
         imageView.setImage(item);
-        imageView.setFitHeight(200);
-        imageView.setFitWidth(350);
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(200);
         setGraphic(imageView);
     }
 }

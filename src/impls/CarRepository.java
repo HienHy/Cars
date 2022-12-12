@@ -29,15 +29,16 @@ public class CarRepository implements IRepository<Car>{
                 int id = rs.getInt("id");
                 String brand = rs.getString("brand");
                 String name = rs.getString("name");
+                String numbers= rs.getString("numbers");
                 int deposit = rs.getInt("deposit");
                 int price = rs.getInt("price");
-                boolean status = rs.getBoolean("status");
+                String status = rs.getString("status");
 
                 //(assuming you have a ResultSet named RS)
                 Blob blob = rs.getBlob("img");
                 int blobLength = (int) blob.length();
                 byte[] imgByte = blob.getBytes(1, blobLength);
-                Car cs = new Car(id,brand,name,deposit,price,status,imgByte);
+                Car cs = new Car(id,brand,name,numbers,deposit,price,status,imgByte);
                 cas.add(cs);
             }
 

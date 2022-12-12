@@ -7,10 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.text.NumberFormat;
-import java.util.Locale;
-import java.util.ResourceBundle;
-
 import static helper.RootStage.rootStage;
 
 public class Main extends Application {
@@ -23,9 +19,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         rootStage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("car/list/list.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("car/list/List.fxml"));
         primaryStage.setTitle("CarBareezy");
-        primaryStage.setScene(new Scene(root,1280,800));
+        primaryStage.setScene(new Scene(root,860,800));
         primaryStage.show();
     }
 }

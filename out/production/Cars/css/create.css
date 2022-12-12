@@ -1,19 +1,19 @@
-.root {
-    -bg-gradient: linear-gradient(from 25px 25px to 500px 300px, #a1ffce, #faffd1);
-    -hlight-gradient: linear-gradient(to bottom, #1dbbdd44, #93f9b944);
-    -primary: #81c48355;
-    -secondary: #375FCB;
-    -tertiary: #fcc200;
-    -tertiary-armed: #FDDD71;
-    -fx-background-color: -bg-gradient;
-    -fx-font-family:'Helvetica', Arial, sans-serif;
+/*.root {*/
+/*    -bg-gradient: linear-gradient(from 25px 25px to 500px 300px, #a1ffce, #faffd1);*/
+/*    -hlight-gradient: linear-gradient(to bottom, #1dbbdd44, #93f9b944);*/
+/*    -primary: #81c48355;*/
+/*    -secondary: #375FCB;*/
+/*    -tertiary: #fcc200;*/
+/*    -tertiary-armed: #FDDD71;*/
+/*    -fx-background-color: -bg-gradient;*/
+/*    -fx-font-family:'Helvetica', Arial, sans-serif;*/
 
-}
-.button{
-    -fill: black;
-    -fx-background-color: -hlight-gradient;
+/*}*/
+/*.button{*/
+/*    -fill: black;*/
+/*    -fx-background-color: -hlight-gradient;*/
 
-}
-.button:hover {
-    -fx-background-color: #Ffff;
-}
+/*}*/
+/*.button:hover {*/
+/*    -fx-background-color: #Ffff;*/
+/*}*/

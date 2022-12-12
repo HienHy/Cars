@@ -1,6 +1,6 @@
 package impls;
 
-import entities.Car;
+
 import helper.Connector;
 import entities.Order;
 import interfaces.IRepository;
@@ -21,7 +21,7 @@ public class OrderRepository implements IRepository<Order>{
             String sql = "select * from orders";
             ResultSet rs = connector.query(sql);
             while (rs.next()){
-                int cusId = rs.getInt("cusId");
+                int oderID = rs.getInt("oderID");
                 String name = rs.getString("cusName");
                 String tel = rs.getString("tel");
                 String email = rs.getString("email");
@@ -33,11 +33,14 @@ public class OrderRepository implements IRepository<Order>{
                 int carPrice = rs.getInt("carPrice");
                 Date nbd = rs.getDate("nbd");
                 Date nkt = rs.getDate("nkt");
-                int carId = rs.getInt("carId");
-                boolean status = rs.getBoolean("status");
+                int carId = rs.getInt("id");
+                String status = rs.getString("status");
+                String number = rs.getString("number");
+                String address = rs.getString("address");
+                int carDeposit = rs.getInt("carDeposit");
 
 
-                Order s = new Order(cusId,name,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt,carId,status);
+                Order s = new Order(oderID,name,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt,carId,status,number,address,carDeposit);
                 ls.add(s);
             }
 
@@ -55,7 +58,7 @@ public class OrderRepository implements IRepository<Order>{
     public boolean create(Order s) {
         try {
             Connector connector = Connector.getInstance();
-            String sql_txt = "insert into orders(cusName,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt,carId,status) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql_txt = "insert into orders(cusName,tel,email,gl,cmt,total,carBrand,carName,carPrice,nbd,nkt,id,status,number,address,carDeposit) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ArrayList parameters = new ArrayList();
             parameters.add(s.getCusName());
             parameters.add(s.getTel());
@@ -65,11 +68,15 @@ public class OrderRepository implements IRepository<Order>{
             parameters.add(s.getTotal());
             parameters.add(s.getCarBrand());
             parameters.add(s.getCarName());
-            parameters.add(s.getTotal());
+            parameters.add(s.getCarPrice());
             parameters.add(s.getNbd());
             parameters.add(s.getNkt());
             parameters.add(s.getCarId());
             parameters.add(s.getStatus());
+            parameters.add(s.getNumber());
+            parameters.add(s.getAddress());
+            parameters.add(s.getCarDeposit());
+
 
 
 
@@ -85,6 +92,20 @@ public class OrderRepository implements IRepository<Order>{
 
     @Override
     public boolean update(Order s) {
+        try {
+            Connector connector = Connector.getInstance();
+            String sql = "UPDATE `orders` SET `status` = ? WHERE `orders`.`oderID` = ?";
+
+            ArrayList parameters = new ArrayList();
+            parameters.add(s.getStatus());
+            parameters.add(s.getOderId());
+
+            return connector.execute(sql, parameters);
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(e.getMessage());
+            alert.show();
+        }
 
 
         return false;
@@ -92,6 +113,20 @@ public class OrderRepository implements IRepository<Order>{
 
     @Override
     public boolean delete(Order s) {
+        try {
+            Connector connector = Connector.getInstance();
+            String sql = "DELETE FROM `orders` WHERE `orders`.`oderID`  = ?";
+
+            ArrayList parameters = new ArrayList();
+            parameters.add(s.getOderId());
+
+            return connector.execute(sql, parameters);
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(e.getMessage());
+            alert.show();
+        }
+
         return false;
     }
 

@@ -18,7 +18,6 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -31,6 +30,8 @@ public class ListController implements Initializable {
 
     public TableColumn<Car,String> cName;
     public TableColumn<Car,String> cBrand;
+    public TableColumn<Car,String> cNumbers;
+
     public TableColumn<Car, String> cDeposit;
     public TableColumn<Car,Integer> cPrice;
     public TableColumn<Car,Boolean> cStatus;
@@ -54,6 +55,7 @@ public class ListController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
         cName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        cNumbers.setCellValueFactory(new PropertyValueFactory<>("numbers"));
         cImg.setCellValueFactory(new PropertyValueFactory<>("img"));
         cImg.setCellFactory(param -> new ImageTableCell<>());
         cDeposit.setCellValueFactory(new PropertyValueFactory<>("deposit"));
@@ -100,8 +102,8 @@ public class ListController implements Initializable {
     }
 
     public void backToList(ActionEvent actionEvent) throws IOException {
-        Parent listScene = FXMLLoader.load(getClass().getResource("../listBill/orderList.fxml"));
-        Scene sc = new Scene(listScene,1280,800);
+        Parent listScene = FXMLLoader.load(getClass().getResource("../listBill/ListBill.fxml"));
+        Scene sc = new Scene(listScene,950,800);
         rootStage.setTitle("CarBareezy");
         rootStage.setScene(sc);
     }
@@ -117,9 +119,11 @@ public class ListController implements Initializable {
         cStatus.setText(Language._msg.getString("status"));
         cAction.setText(Language._msg.getString("action"));
         bnSearch.setText(Language._msg.getString("search"));
-        bnBackToList.setText(Language._msg.getString("backToList"));
-        txtSearch.setText(Language._msg.getString("searchName"));
+        bnBackToList.setText(Language._msg.getString("ListBill"));
+        txtSearch.setText(Language._msg.getString("search"));
         listCar.setText(Language._msg.getString("listCar"));
+        cNumbers.setText(Language._msg.getString("numbers"));
+
 
 
     }
@@ -135,13 +139,40 @@ public class ListController implements Initializable {
         cStatus.setText(Language._msg.getString("status"));
         cAction.setText(Language._msg.getString("action"));
         bnSearch.setText(Language._msg.getString("search"));
-        bnBackToList.setText(Language._msg.getString("backToList"));
-        txtSearch.setText(Language._msg.getString("searchName"));
+        bnBackToList.setText(Language._msg.getString("ListBill"));
+        txtSearch.setText(Language._msg.getString("search"));
         listCar.setText(Language._msg.getString("listCar"));
+        cNumbers.setText(Language._msg.getString("numbers"));
 
 
 
     }
+
+    public void onSearch() {
+        txtSearch.textProperty().addListener((ob,old,newvl)->{
+            try {
+                String s = txtSearch.getText();
+                if (s.isEmpty()) {
+                    tbCar.setItems(ls);
+                    throw new Exception("Vui lòng nhập từ cần tìm kiếm");
+                }
+                ObservableList<Car> results = ls.stream()
+                        .filter(car -> car.getName().toLowerCase().contains(newvl.toLowerCase())
+                                        || car.getBrand().toLowerCase().contains(newvl.toLowerCase())
+                                        || car.getStatus().toLowerCase().contains(newvl.toLowerCase())
+
+//                                || student.getScore().equals(Integer.parseInt(newvl))
+                        )
+                        .collect(Collectors.toCollection(FXCollections::observableArrayList));
+                tbCar.setItems(results);
+
+            } catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error!");
+            }
+        });
+    }
 }
+
 
 
